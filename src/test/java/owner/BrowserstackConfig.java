@@ -4,7 +4,7 @@ package owner;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:${launch}.properties"
+        "classpath:${deviceHost}.properties"
 })
 public interface BrowserstackConfig extends Config {
     @Key("browserstack.userName")

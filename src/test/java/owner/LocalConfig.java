@@ -3,20 +3,20 @@ package owner;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:${envMobile}.properties"
+        "classpath:${deviceHost}.properties"
 })
 
-public interface WebConfig extends Config {
-    @Key("appiumServer")
-    String appiumServer();
+public interface LocalConfig extends Config {
+    @Key("local.server")
+    String localServer();
 
-    @Key("deviceName")
+    @Key("device.name")
     String deviceName();
 
-    @Key("platformName")
+    @Key("platform.name")
     String platformName();
 
-    @Key("platformVersion")
+    @Key("platform.version")
     String platformVersion();
 
     @Key("appURL")
@@ -25,9 +25,9 @@ public interface WebConfig extends Config {
     @Key("appPath")
     String appPath();
 
-    @Key("appPackage")
+    @Key("app.package")
     String appPackage();
 
-    @Key("appActivity")
+    @Key("app.activity")
     String appActivity();
 }
