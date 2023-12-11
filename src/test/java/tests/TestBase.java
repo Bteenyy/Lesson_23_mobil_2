@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import drivers.BrowserstackDriver;
 import drivers.LocalDriver;
@@ -32,9 +33,12 @@ public class TestBase {
 
     @AfterEach
     void addAttachments() {
-        //String sessionId = Selenide.sessionId().toString();
-         //Attach.pageSource();
-        // Attach.addVideo(sessionId);
+        Attach.pageSource();
+        if (System.getProperty("deviceHost").equals("browserstack"))
+        {
+            String sessionId = Selenide.sessionId().toString();
+            Attach.addVideo(sessionId);
+        }
         closeWebDriver();
     }
 }
