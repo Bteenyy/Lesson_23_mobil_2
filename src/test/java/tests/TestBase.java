@@ -14,15 +14,12 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
-    public static String deviceHost = System.getProperty("deviceHost");
     @BeforeAll
     static void beforeAll() {
-        switch (deviceHost) {
-            case "browserstack":
+        if (System.getProperty("deviceHost").equals("browserstack"))
                 Configuration.browser = BrowserstackDriver.class.getName();
-            case "local":
-                Configuration.browser = LocalDriver.class.getName();
-        }
+        else if(System.getProperty("deviceHost").equals("local"))
+            Configuration.browser = LocalDriver.class.getName();
         Configuration.browserSize = null;
         Configuration.timeout = 30000;
     }
