@@ -5,5 +5,5 @@ gradle clean test -DdeviceHost=browserstack
 
 Для запуска тестов локально на эмуляторе:
 ```
-gradle clean ios -DdeviceHost=local
+gradle clean test -DdeviceHost=local
 ```
