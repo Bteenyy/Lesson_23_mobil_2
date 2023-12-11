@@ -15,6 +15,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
+import static io.appium.java_client.remote.MobileBrowserType.ANDROID;
 import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 public class LocalDriver implements WebDriverProvider {
     static LocalConfig configEm = ConfigFactory.create(LocalConfig.class, System.getProperties());
@@ -36,7 +37,7 @@ public class LocalDriver implements WebDriverProvider {
 
     public static URL getAppiumServerUrl() {
         try {
-            return new URL("http://localhost:4723/wd/hub");
+            return new URL(configEm.localServer());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

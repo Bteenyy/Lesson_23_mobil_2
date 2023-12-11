@@ -1,7 +1,6 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import drivers.BrowserstackDriver;
 import drivers.LocalDriver;
@@ -15,9 +14,15 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
+    public static String deviceHost = System.getProperty("deviceHost");
     @BeforeAll
     static void beforeAll() {
-        Configuration.browser = LocalDriver.class.getName();
+        switch (deviceHost) {
+            case "browserstack":
+                Configuration.browser = BrowserstackDriver.class.getName();
+            case "local":
+                Configuration.browser = LocalDriver.class.getName();
+        }
         Configuration.browserSize = null;
         Configuration.timeout = 30000;
     }
@@ -30,9 +35,9 @@ public class TestBase {
 
     @AfterEach
     void addAttachments() {
-        String sessionId = Selenide.sessionId().toString();
-         Attach.pageSource();
-         Attach.addVideo(sessionId);
+        //String sessionId = Selenide.sessionId().toString();
+         //Attach.pageSource();
+        // Attach.addVideo(sessionId);
         closeWebDriver();
     }
 }

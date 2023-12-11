@@ -19,11 +19,6 @@ public interface LocalConfig extends Config {
     @Key("platform.version")
     String platformVersion();
 
-    @Key("appURL")
-    String appURL();
-
-    @Key("appPath")
-    String appPath();
 
     @Key("app.package")
     String appPackage();

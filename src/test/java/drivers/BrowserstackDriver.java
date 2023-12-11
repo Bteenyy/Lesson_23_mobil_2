@@ -9,13 +9,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import owner.BrowserstackConfig;
 
 import javax.annotation.Nonnull;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
 public class BrowserstackDriver implements WebDriverProvider {
     static BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
