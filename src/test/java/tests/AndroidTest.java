@@ -11,7 +11,7 @@ public class AndroidTest extends TestBase {
     @Test
     @Tag("android")
     void searchTest() {
-            $(id("org.wikipedia.alpha:id/option_label")).shouldHave(text("1.  English"));
+        $(id("org.wikipedia.alpha:id/option_label")).shouldHave(text("1.  English"));
         $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click();
         $(id("org.wikipedia.alpha:id/primaryTextView")).shouldHave(text("New ways to explore"));
         $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click();
